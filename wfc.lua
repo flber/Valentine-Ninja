@@ -68,97 +68,137 @@ function WFC:buildWave()
 end
 
 function WFC:observe()
-  debug:write("observing\n")
+  debug:write("observing --------------------------------\n")
   if wfc.checkIfFinished() then
     wfc.finished = true
     debug:write("wooo! done!")
-  else
-    i, j = wfc.findLowestEntropy()
-    debug:write("- lowest entropy is at (" .. i .. ", " .. j .. ")\n")
-    chosen = nil
-    while chosen == nil do
-      for w = 1, #wfc.wave[i][j] do
-        prob = math.random()
-        if prob < wfc.tiles[w].frequency/#wfc.tiles then
-          chosen = w
-        end
-      end
-    end
+    return
+  end
+  i, j = wfc.findLowestEntropy()
+  debug:write("- lowest entropy is at (" .. i .. ", " .. j .. ")\n")
+  chosen = nil
+  while chosen == nil do
     for w = 1, #wfc.wave[i][j] do
-      if w ~= chosen then
-        wfc.wave[i][j][w] = false
-        table.insert(wfc.toPropagate, {i, j})
+      prob = math.random()
+      if prob < wfc.tiles[w].frequency/#wfc.tiles then
+        chosen = w
+        debug:write("-- chosen is " .. w .. "\n")
       end
     end
   end
+  debug:write(waveToText())
+  for q = 1, #wfc.tiles do
+    if q ~= chosen then
+      wfc.wave[i][j][q] = false
+      debug:write("-- set " .. q .. " to false\n")
+      debug:write(waveToText())
+    end
+  end
+  table.insert(wfc.toPropagate, {i, j})
 end
 
 function WFC:propagate()
-  debug:write("propagating\n")
-  for i = 1, #wfc.toPropagate do    -- go through all spaces in the toPropagate list
-    x, y = wfc.toPropagate[i][1], wfc.toPropagate[i][2]   -- current coors of a toPropagate space
+  debug:write("propagating --------------------------------\n")
+  debug:write("- tP: (" .. #wfc.toPropagate .. ")\n")
+  local futurePropagate = {}
+
+  i = 1
+  while i <= #wfc.toPropagate do    -- go through all spaces in the toPropagate list
+    x = wfc.toPropagate[i][1]
+    y = wfc.toPropagate[i][2]   -- current coors of a toPropagate space
     debug:write("- propagating space #" .. i .. " at (" .. x .. ", " .. y .. ")\n")
+
     for j = 1, #wfc.wave[x][y] do   -- go through all tiles at space (x, y)
+      debug:write("-- tile " .. j .. " is " .. (wfc.wave[x][y][j] and 'true' or 'false') .. "\n")
       if wfc.wave[x][y][j] then   -- if that space is allowed
         debug:write("-- possible tile is " .. j .. "\n")
         local adjacency = wfc.adjacencyIndex[j]   -- adjacency data of current tile
 
         for w = 1, #adjacency.top do
-          if adjacency.top[w] = false then
-            if y - 1 >= 1 then
-              wfc.wave[x][y-1][w] = false
-              table.insert(wfc.toPropagate, {x, y-1})
-              debug:write("--- set tile " .. w .. " top to false" .. "\n")
-            end
-          end
+          if adjacency.top[w] == false and y - 1 >= 1 then
+            wfc.wave[x][y-1][w] = false
+            ny = y-1
+            top = {x, ny}
+            table.insert(futurePropagate, top)
+          else debug:write("--- ↑ kept " .. w .. "\n") end
         end
 
         for w = 1, #adjacency.right do
-          if adjacency.right[w] == false then
-            if x + 1 <= #wfc.wave then
-              wfc.wave[x+1][y][w] = false
-              table.insert(wfc.toPropagate, {x+1, y})
-              debug:write("--- set tile " .. w .. " right to false" .. "\n")
-            end
-          end
+          if adjacency.right[w] == false and x + 1 <= #wfc.wave then
+            wfc.wave[x+1][y][w] = false
+            nx = x+1
+            right = {nx, y}
+            table.insert(futurePropagate, right)
+          else debug:write("--- → kept " .. w .. "\n") end
         end
 
         for w = 1, #adjacency.bottom do
-          if adjacency.bottom[w] == false then
-            if y + 1 <= #wfc.wave[x] then
-              wfc.wave[x][y+1][w] = false
-              table.insert(wfc.toPropagate, {x, y+1})
-              debug:write("--- set tile " .. w .. " down to false" .. "\n")
-            end
-          end
+          if adjacency.bottom[w] == false and y + 1 <= #wfc.wave[x] then
+            wfc.wave[x][y+1][w] = false
+            ny = y+1
+            bottom = {x, ny}
+            table.insert(futurePropagate, bottom)
+          else debug:write("--- ↓ kept " .. w .. "\n") end
         end
 
         for w = 1, #adjacency.left do
-          if adjacency.left[w] == false then
-            if x - 1 >= 1 then
-              wfc.wave[x-1][y][w] = false
-              table.insert(wfc.toPropagate, {x-1, y})
-              debug:write("--- set tile " .. w .. " left to false" .. "\n")
-            end
+          if adjacency.left[w] == false and x - 1 >= 1 then
+            wfc.wave[x-1][y][w] = false
+            nx = x-1
+            left = {nx, y}
+            table.insert(futurePropagate, left)
+          else debug:write("--- ← kept " .. w .. "\n") end
+        end
+
+      end
+    end
+
+    if i == #wfc.toPropagate then   -- add the fP to the (cleared) tP and clear fP
+      for j = #wfc.toPropagate, 1, -1 do
+        table.remove(wfc.toPropagate)
+      end
+
+      for a = 1, #futurePropagate do
+        for b = #futurePropagate, a+1, -1 do
+          if tableIsTable(futurePropagate[b], futurePropagate[a]) then
+            table.remove(futurePropagate, b)
           end
         end
-        
       end
-    end
-    for a = #wfc.toPropagate, 1 do
-      local point = wfc.toPropagate[a]
-      for b = a, 1 do
-        local checkPoint = wfc.toPropagate[b]
-        if tableIsTable(checkPoint, point) then
-          table.remove(wfc.toPropagate, b)
-        end
+
+      debug:write("- adding fP (" .. #futurePropagate .. ") to tP (" .. #wfc.toPropagate .. ")\n")
+
+      for j = #futurePropagate, 1, -1 do
+        tempLoc = table.remove(futurePropagate)
+        debug:write("-- tempLoc: (" .. tempLoc[1] .. ", " .. tempLoc[2] .. ")\n")
+        table.insert(wfc.toPropagate, tempLoc)
       end
-    end
+      debug:write("- fP: (" .. #futurePropagate .. "), tP: (" .. #wfc.toPropagate .. ")\n")
+
+      i = 1
+    else i = i+1 end
+    debug:write("**** check: " .. (wfc.wave[1][1][1] and 'true' or 'false') .. " ****\n")
+
   end
 end
 
+function waveToText()
+  local str = ""
+  for i = 1, #wfc.wave do
+    for j = 1, #wfc.wave[i] do
+      str = str .. "["
+      for w = 1, #wfc.wave[i][j] do
+        str = str .. (wfc.wave[i][j][w] and 't' or '.')
+      end
+      str = str .. "]"
+    end
+    str = str .. "\n"
+  end
+  return str
+end
+
 function WFC:outputWave()
-  debug:write("outputting\n")
+  debug:write("outputting --------------------------------\n")
   outImgData = love.image.newImageData(wfc.outW, wfc.outH)    -- create output image
   for i = 1, #wfc.wave do
     for j = 1, #wfc.wave[i] do    -- go through the wave
@@ -211,7 +251,7 @@ end
 function WFC:findLowestEntropy()
   lowest = {}
   lowest.entropy = 10000000
-  lowest.coors = {0, 0}
+  lowest.coors = {-1, -1}
   for i = 1, #wfc.wave do
     for j = 1, #wfc.wave[i] do
       local currentEntropy = 0
@@ -245,7 +285,7 @@ function WFC:findLowestEntropy()
 end
 
 function WFC:getTiles()
-  debug:write("generating tiles\n")
+  debug:write("generating tiles --------------------------------\n")
   for x = 0, wfc.inW - wfc.N do   -- make the tiles from the input and create color ids
     for y = 0, wfc.inH - wfc.N do
       local tile = {}
@@ -461,7 +501,7 @@ function WFC:getTiles()
 end
 
 function WFC:buildPropagator()
-  debug:write("building the propagator\n")
+  debug:write("building the propagator --------------------------------\n")
   for i = 1, #wfc.tiles do    -- go through all tiles
     debug:write("- tile " .. i .." (id: " .. wfc.tiles[i].id .. ")\n")
     local currentTile = wfc.tiles[i]    -- get current tile
@@ -472,40 +512,36 @@ function WFC:buildPropagator()
       -- debug:write("-- " .. checkTile.color.bottom .." == " .. currentTile.color.top .. "\n")
       if checkTile.color.bottom == currentTile.color.top then
         tileAdjacency.top[j] = true
-        debug:write("--- a: tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
+        debug:write("--- ↑ tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
       else tileAdjacency.top[j] = false end
     end
-    debug:write("---\n")
     tileAdjacency.bottom = {}
     for j = 1, #wfc.tiles do
       local checkTile = wfc.tiles[j]
       -- debug:write("-- " .. checkTile.color.top .." == " .. currentTile.color.bottom .. "\n")
       if checkTile.color.top == currentTile.color.bottom then
         tileAdjacency.bottom[j] = true
-        debug:write("--- b: tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
+        debug:write("--- ↓ tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
       else tileAdjacency.bottom[j] = false end
     end
-    debug:write("---\n")
     tileAdjacency.left = {}
     for j = 1, #wfc.tiles do
       local checkTile = wfc.tiles[j]
       -- debug:write("-- " .. checkTile.color.right .." == " .. currentTile.color.left .. "\n")
       if checkTile.color.right == currentTile.color.left then
         tileAdjacency.left[j] = true
-        debug:write("--- l: tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
+        debug:write("--- ← tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
       else tileAdjacency.left[j] = false end
     end
-    debug:write("---\n")
     tileAdjacency.right = {}
     for j = 1, #wfc.tiles do
       local checkTile = wfc.tiles[j]
       -- debug:write("-- " .. checkTile.color.left .." == " .. currentTile.color.right .. "\n")
       if checkTile.color.left == currentTile.color.right then
         tileAdjacency.right[j] = true
-        debug:write("--- r: tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
+        debug:write("--- → tile #" .. j .." (id: " .. wfc.tiles[j].id .. ")\n")
       else tileAdjacency.right[j] = false end
     end
-    debug:write("---\n")
     table.insert(wfc.adjacencyIndex, tileAdjacency)
   end
 end

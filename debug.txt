@@ -1,427 +1,122 @@
-generating tiles
+generating tiles --------------------------------
 - colors:
 -- color #1: (1.00, 1.00, 1.00)
 -- color #2: (0.00, 0.00, 0.00)
--- color #3: (0.00, 0.74, 0.83)
 - color lists:
 -- list #1: 1 1 
 -- list #2: 1 2 
--- list #3: 2 2 
--- list #4: 2 1 
--- list #5: 2 3 
--- list #6: 3 2 
-building the propagator
+-- list #3: 2 1 
+building the propagator --------------------------------
 - tile 1 (id: 1212)
---- a: tile #4 (id: 2114)
---- a: tile #8 (id: 3144)
---- a: tile #12 (id: 3144)
---- a: tile #16 (id: 4141)
----
---- b: tile #2 (id: 2213)
---- b: tile #3 (id: 2213)
---- b: tile #4 (id: 2114)
----
---- l: tile #13 (id: 1421)
---- l: tile #14 (id: 4431)
---- l: tile #15 (id: 4431)
---- l: tile #16 (id: 4141)
----
---- r: tile #5 (id: 1322)
---- r: tile #9 (id: 1322)
---- r: tile #13 (id: 1421)
----
-- tile 2 (id: 2213)
---- a: tile #1 (id: 1212)
---- a: tile #2 (id: 2213)
---- a: tile #3 (id: 2213)
----
---- b: tile #2 (id: 2213)
---- b: tile #3 (id: 2213)
---- b: tile #4 (id: 2114)
----
---- l: tile #13 (id: 1421)
---- l: tile #14 (id: 4431)
---- l: tile #15 (id: 4431)
---- l: tile #16 (id: 4141)
----
---- r: tile #6 (id: 3535)
---- r: tile #7 (id: 5336)
---- r: tile #14 (id: 4431)
---- r: tile #15 (id: 4431)
----
-- tile 3 (id: 2213)
---- a: tile #1 (id: 1212)
---- a: tile #2 (id: 2213)
---- a: tile #3 (id: 2213)
----
---- b: tile #2 (id: 2213)
---- b: tile #3 (id: 2213)
---- b: tile #4 (id: 2114)
----
---- l: tile #13 (id: 1421)
---- l: tile #14 (id: 4431)
---- l: tile #15 (id: 4431)
---- l: tile #16 (id: 4141)
----
---- r: tile #6 (id: 3535)
---- r: tile #7 (id: 5336)
---- r: tile #14 (id: 4431)
---- r: tile #15 (id: 4431)
----
-- tile 4 (id: 2114)
---- a: tile #1 (id: 1212)
---- a: tile #2 (id: 2213)
---- a: tile #3 (id: 2213)
----
---- b: tile #1 (id: 1212)
---- b: tile #5 (id: 1322)
---- b: tile #9 (id: 1322)
---- b: tile #13 (id: 1421)
----
---- l: tile #13 (id: 1421)
---- l: tile #14 (id: 4431)
---- l: tile #15 (id: 4431)
---- l: tile #16 (id: 4141)
----
---- r: tile #8 (id: 3144)
---- r: tile #12 (id: 3144)
---- r: tile #16 (id: 4141)
----
-- tile 5 (id: 1322)
---- a: tile #4 (id: 2114)
---- a: tile #8 (id: 3144)
---- a: tile #12 (id: 3144)
---- a: tile #16 (id: 4141)
----
---- b: tile #6 (id: 3535)
---- b: tile #8 (id: 3144)
---- b: tile #10 (id: 3653)
---- b: tile #12 (id: 3144)
----
---- l: tile #1 (id: 1212)
---- l: tile #5 (id: 1322)
---- l: tile #9 (id: 1322)
----
---- r: tile #5 (id: 1322)
---- r: tile #9 (id: 1322)
---- r: tile #13 (id: 1421)
----
-- tile 6 (id: 3535)
---- a: tile #5 (id: 1322)
---- a: tile #7 (id: 5336)
---- a: tile #9 (id: 1322)
---- a: tile #11 (id: 6363)
----
---- b: tile #7 (id: 5336)
----
---- l: tile #2 (id: 2213)
---- l: tile #3 (id: 2213)
---- l: tile #10 (id: 3653)
---- l: tile #11 (id: 6363)
----
---- r: tile #10 (id: 3653)
----
-- tile 7 (id: 5336)
---- a: tile #6 (id: 3535)
----
---- b: tile #6 (id: 3535)
---- b: tile #8 (id: 3144)
---- b: tile #10 (id: 3653)
---- b: tile #12 (id: 3144)
----
---- l: tile #2 (id: 2213)
---- l: tile #3 (id: 2213)
---- l: tile #10 (id: 3653)
---- l: tile #11 (id: 6363)
----
---- r: tile #11 (id: 6363)
----
-- tile 8 (id: 3144)
---- a: tile #5 (id: 1322)
---- a: tile #7 (id: 5336)
---- a: tile #9 (id: 1322)
---- a: tile #11 (id: 6363)
----
---- b: tile #1 (id: 1212)
---- b: tile #5 (id: 1322)
---- b: tile #9 (id: 1322)
---- b: tile #13 (id: 1421)
----
---- l: tile #4 (id: 2114)
---- l: tile #8 (id: 3144)
---- l: tile #12 (id: 3144)
----
---- r: tile #8 (id: 3144)
---- r: tile #12 (id: 3144)
---- r: tile #16 (id: 4141)
----
-- tile 9 (id: 1322)
---- a: tile #4 (id: 2114)
---- a: tile #8 (id: 3144)
---- a: tile #12 (id: 3144)
---- a: tile #16 (id: 4141)
----
---- b: tile #6 (id: 3535)
---- b: tile #8 (id: 3144)
---- b: tile #10 (id: 3653)
---- b: tile #12 (id: 3144)
----
---- l: tile #1 (id: 1212)
---- l: tile #5 (id: 1322)
---- l: tile #9 (id: 1322)
----
---- r: tile #5 (id: 1322)
---- r: tile #9 (id: 1322)
---- r: tile #13 (id: 1421)
----
-- tile 10 (id: 3653)
---- a: tile #5 (id: 1322)
---- a: tile #7 (id: 5336)
---- a: tile #9 (id: 1322)
---- a: tile #11 (id: 6363)
----
---- b: tile #11 (id: 6363)
----
---- l: tile #6 (id: 3535)
----
---- r: tile #6 (id: 3535)
---- r: tile #7 (id: 5336)
---- r: tile #14 (id: 4431)
---- r: tile #15 (id: 4431)
----
-- tile 11 (id: 6363)
---- a: tile #10 (id: 3653)
----
---- b: tile #6 (id: 3535)
---- b: tile #8 (id: 3144)
---- b: tile #10 (id: 3653)
---- b: tile #12 (id: 3144)
----
---- l: tile #7 (id: 5336)
----
---- r: tile #6 (id: 3535)
---- r: tile #7 (id: 5336)
---- r: tile #14 (id: 4431)
---- r: tile #15 (id: 4431)
----
-- tile 12 (id: 3144)
---- a: tile #5 (id: 1322)
---- a: tile #7 (id: 5336)
---- a: tile #9 (id: 1322)
---- a: tile #11 (id: 6363)
----
---- b: tile #1 (id: 1212)
---- b: tile #5 (id: 1322)
---- b: tile #9 (id: 1322)
---- b: tile #13 (id: 1421)
----
---- l: tile #4 (id: 2114)
---- l: tile #8 (id: 3144)
---- l: tile #12 (id: 3144)
----
---- r: tile #8 (id: 3144)
---- r: tile #12 (id: 3144)
---- r: tile #16 (id: 4141)
----
-- tile 13 (id: 1421)
---- a: tile #4 (id: 2114)
---- a: tile #8 (id: 3144)
---- a: tile #12 (id: 3144)
---- a: tile #16 (id: 4141)
----
---- b: tile #14 (id: 4431)
---- b: tile #15 (id: 4431)
---- b: tile #16 (id: 4141)
----
---- l: tile #1 (id: 1212)
---- l: tile #5 (id: 1322)
---- l: tile #9 (id: 1322)
----
---- r: tile #1 (id: 1212)
---- r: tile #2 (id: 2213)
---- r: tile #3 (id: 2213)
---- r: tile #4 (id: 2114)
----
-- tile 14 (id: 4431)
---- a: tile #13 (id: 1421)
---- a: tile #14 (id: 4431)
---- a: tile #15 (id: 4431)
----
---- b: tile #14 (id: 4431)
---- b: tile #15 (id: 4431)
---- b: tile #16 (id: 4141)
----
---- l: tile #2 (id: 2213)
---- l: tile #3 (id: 2213)
---- l: tile #10 (id: 3653)
---- l: tile #11 (id: 6363)
----
---- r: tile #1 (id: 1212)
---- r: tile #2 (id: 2213)
---- r: tile #3 (id: 2213)
---- r: tile #4 (id: 2114)
----
-- tile 15 (id: 4431)
---- a: tile #13 (id: 1421)
---- a: tile #14 (id: 4431)
---- a: tile #15 (id: 4431)
----
---- b: tile #14 (id: 4431)
---- b: tile #15 (id: 4431)
---- b: tile #16 (id: 4141)
----
---- l: tile #2 (id: 2213)
---- l: tile #3 (id: 2213)
---- l: tile #10 (id: 3653)
---- l: tile #11 (id: 6363)
----
---- r: tile #1 (id: 1212)
---- r: tile #2 (id: 2213)
---- r: tile #3 (id: 2213)
---- r: tile #4 (id: 2114)
----
-- tile 16 (id: 4141)
---- a: tile #13 (id: 1421)
---- a: tile #14 (id: 4431)
---- a: tile #15 (id: 4431)
----
---- b: tile #1 (id: 1212)
---- b: tile #5 (id: 1322)
---- b: tile #9 (id: 1322)
---- b: tile #13 (id: 1421)
----
---- l: tile #4 (id: 2114)
---- l: tile #8 (id: 3144)
---- l: tile #12 (id: 3144)
----
---- r: tile #1 (id: 1212)
---- r: tile #2 (id: 2213)
---- r: tile #3 (id: 2213)
---- r: tile #4 (id: 2114)
----
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
 building the wave
 
-outputting
-observing
-- lowest entropy is at (41, 50)
-propagating
-- propagating space #1 at (41, 50)
--- possible tile is 8
---- ps is (41, 49)
---- set tile 1 top to false
---- ps is (41, 49)
---- set tile 2 top to false
---- ps is (41, 49)
---- set tile 3 top to false
---- ps is (41, 49)
---- set tile 4 top to false
---- ps is (41, 49)
---- set tile 6 top to false
---- ps is (41, 49)
---- set tile 8 top to false
---- ps is (41, 49)
---- set tile 10 top to false
---- ps is (41, 49)
---- set tile 12 top to false
---- ps is (41, 49)
---- set tile 13 top to false
---- ps is (41, 49)
---- set tile 14 top to false
---- ps is (41, 49)
---- set tile 15 top to false
---- ps is (41, 49)
---- set tile 16 top to false
---- ps is (42, 50)
---- set tile 1 right to false
---- ps is (42, 50)
---- set tile 2 right to false
---- ps is (42, 50)
---- set tile 3 right to false
---- ps is (42, 50)
---- set tile 4 right to false
---- ps is (42, 50)
---- set tile 5 right to false
---- ps is (42, 50)
---- set tile 6 right to false
---- ps is (42, 50)
---- set tile 7 right to false
---- ps is (42, 50)
---- set tile 9 right to false
---- ps is (42, 50)
---- set tile 10 right to false
---- ps is (42, 50)
---- set tile 11 right to false
---- ps is (42, 50)
---- set tile 13 right to false
---- ps is (42, 50)
---- set tile 14 right to false
---- ps is (42, 50)
---- set tile 15 right to false
---- ps is (41, 51)
---- set tile 2 down to false
---- ps is (41, 51)
---- set tile 3 down to false
---- ps is (41, 51)
---- set tile 4 down to false
---- ps is (41, 51)
---- set tile 6 down to false
---- ps is (41, 51)
---- set tile 7 down to false
---- ps is (41, 51)
---- set tile 8 down to false
---- ps is (41, 51)
---- set tile 10 down to false
---- ps is (41, 51)
---- set tile 11 down to false
---- ps is (41, 51)
---- set tile 12 down to false
---- ps is (41, 51)
---- set tile 14 down to false
---- ps is (41, 51)
---- set tile 15 down to false
---- ps is (41, 51)
---- set tile 16 down to false
---- ps is (40, 50)
---- set tile 1 left to false
---- ps is (40, 50)
---- set tile 2 left to false
---- ps is (40, 50)
---- set tile 3 left to false
---- ps is (40, 50)
---- set tile 5 left to false
---- ps is (40, 50)
---- set tile 6 left to false
---- ps is (40, 50)
---- set tile 7 left to false
---- ps is (40, 50)
---- set tile 9 left to false
---- ps is (40, 50)
---- set tile 10 left to false
---- ps is (40, 50)
---- set tile 11 left to false
---- ps is (40, 50)
---- set tile 13 left to false
---- ps is (40, 50)
---- set tile 14 left to false
---- ps is (40, 50)
---- set tile 15 left to false
---- ps is (40, 50)
---- set tile 16 left to false
-- propagating space #2 at (41, 50)
-- propagating space #3 at (41, 50)
-- propagating space #4 at (41, 50)
-- propagating space #5 at (41, 50)
-- propagating space #6 at (41, 50)
-- propagating space #7 at (41, 50)
-- propagating space #8 at (41, 50)
-- propagating space #9 at (41, 50)
-- propagating space #10 at (41, 50)
-- propagating space #11 at (41, 50)
-- propagating space #12 at (41, 50)
-- propagating space #13 at (41, 50)
-- propagating space #14 at (41, 50)
-- propagating space #15 at (41, 50)
+outputting --------------------------------
+observing --------------------------------
+- lowest entropy is at (3, 4)
+-- chosen is 2
+-- chosen is 3
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 1 to false
+[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
+[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
+[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
+[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
+[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
+[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
+-- set 2 to false
+[..tt][..tt][..tt][..tt][..tt][..tt]
+[..tt][..tt][..tt][..tt][..tt][..tt]
+[..tt][..tt][..tt][..tt][..tt][..tt]
+[..tt][..tt][..tt][..tt][..tt][..tt]
+[..tt][..tt][..tt][..tt][..tt][..tt]
+[..tt][..tt][..tt][..tt][..tt][..tt]
+-- set 4 to false
+[..t.][..t.][..t.][..t.][..t.][..t.]
+[..t.][..t.][..t.][..t.][..t.][..t.]
+[..t.][..t.][..t.][..t.][..t.][..t.]
+[..t.][..t.][..t.][..t.][..t.][..t.]
+[..t.][..t.][..t.][..t.][..t.][..t.]
+[..t.][..t.][..t.][..t.][..t.][..t.]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (3, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is true
+-- possible tile is 3
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 1
+--- → kept 2
+--- ↓ kept 4
+--- ← kept 1
+-- tile 4 is false
+- adding fP (4) to tP (0)
+-- tempLoc: (2, 4)
+-- tempLoc: (3, 5)
+-- tempLoc: (4, 4)
+-- tempLoc: (3, 3)
+- fP: (0), tP: (4)
+**** check: false ****
+- propagating space #1 at (2, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+**** check: false ****
+- propagating space #2 at (3, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+**** check: false ****
+- propagating space #3 at (4, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+**** check: false ****
+- propagating space #4 at (3, 3)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+**** check: false ****
 
-outputting
-observing
-- lowest entropy is at (0, 0)
+outputting --------------------------------
+observing --------------------------------
+- lowest entropy is at (-1, -1)
