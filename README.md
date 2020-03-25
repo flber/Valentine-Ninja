@@ -1,2 +1,2 @@
-# Valentine-Ninja
-Game 2/12
+# WFC Algorithm
+Tool for the month of February
