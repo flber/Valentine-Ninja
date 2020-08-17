@@ -39,9 +39,14 @@ building the wave
 
 outputting --------------------------------
 observing --------------------------------
-- lowest entropy is at (3, 4)
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (3, 6)
 -- chosen is 2
--- chosen is 3
 [tttt][tttt][tttt][tttt][tttt][tttt]
 [tttt][tttt][tttt][tttt][tttt][tttt]
 [tttt][tttt][tttt][tttt][tttt][tttt]
@@ -49,29 +54,81 @@ observing --------------------------------
 [tttt][tttt][tttt][tttt][tttt][tttt]
 [tttt][tttt][tttt][tttt][tttt][tttt]
 -- set 1 to false
-[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
-[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
-[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
-[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
-[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
-[.ttt][.ttt][.ttt][.ttt][.ttt][.ttt]
--- set 2 to false
-[..tt][..tt][..tt][..tt][..tt][..tt]
-[..tt][..tt][..tt][..tt][..tt][..tt]
-[..tt][..tt][..tt][..tt][..tt][..tt]
-[..tt][..tt][..tt][..tt][..tt][..tt]
-[..tt][..tt][..tt][..tt][..tt][..tt]
-[..tt][..tt][..tt][..tt][..tt][..tt]
+-- set 3 to false
 -- set 4 to false
-[..t.][..t.][..t.][..t.][..t.][..t.]
-[..t.][..t.][..t.][..t.][..t.][..t.]
-[..t.][..t.][..t.][..t.][..t.][..t.]
-[..t.][..t.][..t.][..t.][..t.][..t.]
-[..t.][..t.][..t.][..t.][..t.][..t.]
-[..t.][..t.][..t.][..t.][..t.][..t.]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][.t..]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
 propagating --------------------------------
 - tP: (1)
-- propagating space #1 at (3, 4)
+- propagating space #1 at (3, 6)
+-- tile 1 is false
+-- tile 2 is true
+-- possible tile is 2
+--- ↑ kept 1
+--- → kept 4
+--- ↓ kept 1
+--- ↓ kept 2
+--- ↓ kept 3
+--- ↓ kept 4
+--- ← kept 3
+--- ← kept 4
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (2, 6)
+-- tempLoc: (4, 6)
+-- tempLoc: (3, 5)
+- fP: (0), tP: (3)
+- propagating space #1 at (2, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (4, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (3, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][0]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (3, 6)
+-- chosen is 3
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][.t..]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+-- set 1 to false
+-- set 2 to false
+-- set 4 to false
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][..t.]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (3, 6)
 -- tile 1 is false
 -- tile 2 is false
 -- tile 3 is true
@@ -80,43 +137,1481 @@ propagating --------------------------------
 --- ↑ kept 4
 --- → kept 1
 --- → kept 2
+--- ↓ kept 1
+--- ↓ kept 2
+--- ↓ kept 3
 --- ↓ kept 4
 --- ← kept 1
 -- tile 4 is false
-- adding fP (4) to tP (0)
--- tempLoc: (2, 4)
+- adding fP (3) to tP (0)
+-- tempLoc: (2, 6)
+-- tempLoc: (4, 6)
 -- tempLoc: (3, 5)
--- tempLoc: (4, 4)
--- tempLoc: (3, 3)
-- fP: (0), tP: (4)
-**** check: false ****
-- propagating space #1 at (2, 4)
+- fP: (0), tP: (3)
+- propagating space #1 at (2, 6)
 -- tile 1 is false
 -- tile 2 is false
 -- tile 3 is false
 -- tile 4 is false
-**** check: false ****
-- propagating space #2 at (3, 5)
+- propagating space #2 at (4, 6)
 -- tile 1 is false
 -- tile 2 is false
 -- tile 3 is false
 -- tile 4 is false
-**** check: false ****
-- propagating space #3 at (4, 4)
--- tile 1 is false
--- tile 2 is false
--- tile 3 is false
--- tile 4 is false
-**** check: false ****
-- propagating space #4 at (3, 3)
+- propagating space #3 at (3, 5)
 -- tile 1 is false
 -- tile 2 is false
 -- tile 3 is false
 -- tile 4 is false
 - adding fP (0) to tP (0)
 - fP: (0), tP: (0)
-**** check: false ****
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
 
 outputting --------------------------------
 observing --------------------------------
-- lowest entropy is at (-1, -1)
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (1, 6)
+-- chosen is 2
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 1 to false
+-- set 3 to false
+-- set 4 to false
+[tttt][tttt][tttt][tttt][tttt][.t..]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (1, 6)
+-- tile 1 is false
+-- tile 2 is true
+-- possible tile is 2
+--- ↑ kept 1
+--- → kept 4
+--- ↓ kept 1
+--- ↓ kept 2
+--- ↓ kept 3
+--- ↓ kept 4
+--- ← kept 1
+--- ← kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (2) to tP (0)
+-- tempLoc: (2, 6)
+-- tempLoc: (1, 5)
+- fP: (0), tP: (2)
+- propagating space #1 at (2, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (1, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][9999999999][9999999999][0]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (1, 6)
+-- chosen is 1
+[....][....][....][....][....][.t..]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[....][....][....][....][....][t...]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (1, 6)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 3
+--- ↓ kept 1
+--- ↓ kept 2
+--- ↓ kept 3
+--- ↓ kept 4
+--- ← kept 1
+--- ← kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (2) to tP (0)
+-- tempLoc: (2, 6)
+-- tempLoc: (1, 5)
+- fP: (0), tP: (2)
+- propagating space #1 at (2, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (1, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (1, 1)
+-- chosen is 2
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 1 to false
+-- set 3 to false
+-- set 4 to false
+[.t..][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (1, 1)
+-- tile 1 is false
+-- tile 2 is true
+-- possible tile is 2
+--- ↑ kept 1
+--- ↑ kept 2
+--- ↑ kept 3
+--- ↑ kept 4
+--- → kept 4
+--- ↓ kept 1
+--- ↓ kept 3
+--- ← kept 1
+--- ← kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (2) to tP (0)
+-- tempLoc: (1, 2)
+-- tempLoc: (2, 1)
+- fP: (0), tP: (2)
+- propagating space #1 at (1, 2)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (2, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[0][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (1, 1)
+-- chosen is 4
+[.t..][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+-- set 1 to false
+-- set 2 to false
+-- set 3 to false
+[...t][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (1, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is true
+-- possible tile is 4
+--- ↑ kept 1
+--- ↑ kept 2
+--- ↑ kept 3
+--- ↑ kept 4
+--- → kept 1
+--- → kept 2
+--- ↓ kept 1
+--- ↓ kept 3
+--- ← kept 1
+--- ← kept 2
+--- ← kept 3
+--- ← kept 4
+- adding fP (2) to tP (0)
+-- tempLoc: (1, 2)
+-- tempLoc: (2, 1)
+- fP: (0), tP: (2)
+- propagating space #1 at (1, 2)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (2, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (4, 6)
+-- chosen is 1
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][t...]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (4, 6)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 3
+--- ↓ kept 1
+--- ↓ kept 2
+--- ↓ kept 3
+--- ↓ kept 4
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (3, 6)
+-- tempLoc: (5, 6)
+-- tempLoc: (4, 5)
+- fP: (0), tP: (3)
+- propagating space #1 at (3, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (5, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (4, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][0]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (4, 6)
+-- chosen is 2
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][t...]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+-- set 1 to false
+-- set 3 to false
+-- set 4 to false
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][.t..]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (4, 6)
+-- tile 1 is false
+-- tile 2 is true
+-- possible tile is 2
+--- ↑ kept 1
+--- → kept 4
+--- ↓ kept 1
+--- ↓ kept 2
+--- ↓ kept 3
+--- ↓ kept 4
+--- ← kept 3
+--- ← kept 4
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (3, 6)
+-- tempLoc: (5, 6)
+-- tempLoc: (4, 5)
+- fP: (0), tP: (3)
+- propagating space #1 at (3, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (5, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (4, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (1, 4)
+-- chosen is 1
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[tttt][tttt][tttt][t...][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (1, 4)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 3
+--- ↓ kept 2
+--- ← kept 1
+--- ← kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (1, 5)
+-- tempLoc: (2, 4)
+-- tempLoc: (1, 3)
+- fP: (0), tP: (3)
+- propagating space #1 at (1, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (2, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (1, 3)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][0][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (1, 4)
+-- chosen is 4
+[....][....][....][t...][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+-- set 1 to false
+-- set 2 to false
+-- set 3 to false
+[....][....][....][...t][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (1, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is true
+-- possible tile is 4
+--- ↑ kept 3
+--- → kept 1
+--- → kept 2
+--- ↓ kept 1
+--- ↓ kept 3
+--- ← kept 1
+--- ← kept 2
+--- ← kept 3
+--- ← kept 4
+- adding fP (3) to tP (0)
+-- tempLoc: (1, 5)
+-- tempLoc: (2, 4)
+-- tempLoc: (1, 3)
+- fP: (0), tP: (3)
+- propagating space #1 at (1, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (2, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (1, 3)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (2, 1)
+-- chosen is 4
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 1 to false
+-- set 2 to false
+-- set 3 to false
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[...t][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (2, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is true
+-- possible tile is 4
+--- ↑ kept 1
+--- ↑ kept 2
+--- ↑ kept 3
+--- ↑ kept 4
+--- → kept 1
+--- → kept 2
+--- ↓ kept 1
+--- ↓ kept 3
+--- ← kept 2
+- adding fP (3) to tP (0)
+-- tempLoc: (1, 1)
+-- tempLoc: (2, 2)
+-- tempLoc: (3, 1)
+- fP: (0), tP: (3)
+- propagating space #1 at (1, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (2, 2)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (3, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[0][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (2, 1)
+-- chosen is 1
+[....][....][....][....][....][....]
+[...t][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[....][....][....][....][....][....]
+[t...][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (2, 1)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 1
+--- ↑ kept 2
+--- ↑ kept 3
+--- ↑ kept 4
+--- → kept 3
+--- ↓ kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (1, 1)
+-- tempLoc: (2, 2)
+-- tempLoc: (3, 1)
+- fP: (0), tP: (3)
+- propagating space #1 at (1, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (2, 2)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (3, 1)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (6, 5)
+-- chosen is 1
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][t...][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (6, 5)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 1
+--- → kept 2
+--- → kept 3
+--- → kept 4
+--- ↓ kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (5, 5)
+-- tempLoc: (6, 6)
+-- tempLoc: (6, 4)
+- fP: (0), tP: (3)
+- propagating space #1 at (5, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (6, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (6, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][0][9999999999]
+- lowest entropy is at (6, 5)
+-- chosen is 1
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][t...][....]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][t...][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (6, 5)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 1
+--- → kept 2
+--- → kept 3
+--- → kept 4
+--- ↓ kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (5, 5)
+-- tempLoc: (6, 6)
+-- tempLoc: (6, 4)
+- fP: (0), tP: (3)
+- propagating space #1 at (5, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (6, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (6, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (5, 5)
+-- chosen is 1
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][t...][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (5, 5)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 3
+--- ↓ kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (4) to tP (0)
+-- tempLoc: (4, 5)
+-- tempLoc: (5, 6)
+-- tempLoc: (6, 5)
+-- tempLoc: (5, 4)
+- fP: (0), tP: (4)
+- propagating space #1 at (4, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (5, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (6, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #4 at (5, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][0][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (5, 5)
+-- chosen is 4
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][t...][....]
+[....][....][....][....][....][....]
+-- set 1 to false
+-- set 2 to false
+-- set 3 to false
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][...t][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (5, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is true
+-- possible tile is 4
+--- ↑ kept 3
+--- → kept 1
+--- → kept 2
+--- ↓ kept 1
+--- ↓ kept 3
+--- ← kept 2
+- adding fP (4) to tP (0)
+-- tempLoc: (4, 5)
+-- tempLoc: (5, 6)
+-- tempLoc: (6, 5)
+-- tempLoc: (5, 4)
+- fP: (0), tP: (4)
+- propagating space #1 at (4, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (5, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (6, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #4 at (5, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (5, 4)
+-- chosen is 2
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 1 to false
+-- set 3 to false
+-- set 4 to false
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][.t..][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (5, 4)
+-- tile 1 is false
+-- tile 2 is true
+-- possible tile is 2
+--- ↑ kept 1
+--- → kept 4
+--- ↓ kept 1
+--- ↓ kept 3
+--- ← kept 3
+--- ← kept 4
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (4) to tP (0)
+-- tempLoc: (4, 4)
+-- tempLoc: (5, 5)
+-- tempLoc: (6, 4)
+-- tempLoc: (5, 3)
+- fP: (0), tP: (4)
+- propagating space #1 at (4, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (5, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (6, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #4 at (5, 3)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+outputting --------------------------------
+observing --------------------------------
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+[9999999999][9999999999][9999999999][0][9999999999][9999999999]
+[9999999999][9999999999][9999999999][9999999999][9999999999][9999999999]
+- lowest entropy is at (5, 4)
+-- chosen is 2
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][.t..][....][....]
+[....][....][....][....][....][....]
+-- set 1 to false
+-- set 3 to false
+-- set 4 to false
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][....][....][....]
+[....][....][....][.t..][....][....]
+[....][....][....][....][....][....]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (5, 4)
+-- tile 1 is false
+-- tile 2 is true
+-- possible tile is 2
+--- ↑ kept 1
+--- → kept 4
+--- ↓ kept 1
+--- ↓ kept 3
+--- ← kept 3
+--- ← kept 4
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (4) to tP (0)
+-- tempLoc: (4, 4)
+-- tempLoc: (5, 5)
+-- tempLoc: (6, 4)
+-- tempLoc: (5, 3)
+- fP: (0), tP: (4)
+- propagating space #1 at (4, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (5, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (6, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #4 at (5, 3)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+
+oopsgenerating tiles --------------------------------
+- colors:
+-- color #1: (1.00, 1.00, 1.00)
+-- color #2: (0.00, 0.00, 0.00)
+- color lists:
+-- list #1: 1 1 
+-- list #2: 1 2 
+-- list #3: 2 1 
+building the propagator --------------------------------
+- tile 1 (id: 1212)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #2 (id: 2113)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #3 (id: 1321)
+- tile 2 (id: 2113)
+--- ↑ tile #1 (id: 1212)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #3 (id: 1321)
+--- ← tile #4 (id: 3131)
+--- → tile #4 (id: 3131)
+- tile 3 (id: 1321)
+--- ↑ tile #2 (id: 2113)
+--- ↑ tile #4 (id: 3131)
+--- ↓ tile #4 (id: 3131)
+--- ← tile #1 (id: 1212)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+- tile 4 (id: 3131)
+--- ↑ tile #3 (id: 1321)
+--- ↓ tile #1 (id: 1212)
+--- ↓ tile #3 (id: 1321)
+--- ← tile #2 (id: 2113)
+--- → tile #1 (id: 1212)
+--- → tile #2 (id: 2113)
+building the wave
+
+outputting --------------------------------
+observing --------------------------------
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+[5][5][5][5][5][5]
+- lowest entropy is at (6, 5)
+-- chosen is 1
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+-- set 2 to false
+-- set 3 to false
+-- set 4 to false
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][tttt][tttt]
+[tttt][tttt][tttt][tttt][t...][tttt]
+propagating --------------------------------
+- tP: (1)
+- propagating space #1 at (6, 5)
+-- tile 1 is true
+-- possible tile is 1
+--- ↑ kept 2
+--- ↑ kept 4
+--- → kept 1
+--- → kept 2
+--- → kept 3
+--- → kept 4
+--- ↓ kept 2
+--- ← kept 3
+--- ← kept 4
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (3) to tP (0)
+-- tempLoc: (5, 5)
+-- tempLoc: (6, 6)
+-- tempLoc: (6, 4)
+- fP: (0), tP: (3)
+- propagating space #1 at (5, 5)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #2 at (6, 6)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- propagating space #3 at (6, 4)
+-- tile 1 is false
+-- tile 2 is false
+-- tile 3 is false
+-- tile 4 is false
+- adding fP (0) to tP (0)
+- fP: (0), tP: (0)
+

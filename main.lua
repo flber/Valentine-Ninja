@@ -23,7 +23,7 @@ function love.update(dt)
     imgData = wfc:step()
     while imgData == "oops" do
       debug:write("oops")
-      wfc = WFC:create(inputImgData, 3, true, 7, 7)
+      wfc = WFC:create(inputImgData, 2, true, 7, 7)
       wfc:build()
       imgData = wfc:step()
     end

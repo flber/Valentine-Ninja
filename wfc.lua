@@ -23,6 +23,8 @@ function WFC:create(data, N, shouldStep, ow, oh)
   wfc.outW = ow
   wfc.outH = oh
   wfc.N = N
+  wfc.wave.w = (wfc.outW-1)/(wfc.N-1)
+  wfc.wave.h = (wfc.outH-1)/(wfc.N-1)
   wfc.shouldStep = step
   wfc.contradiction = false
   return wfc
@@ -54,21 +56,27 @@ end
 
 function WFC:buildWave()
   debug:write("building the wave\n")
+  print("building wave")
   wfc.tileWave = {}
   for i = 1, #wfc.tiles do
     wfc.tileWave[i] = true
+    print("setting tile " .. i .. "/" .. #wfc.tiles .. " to true")
   end
 
-  for i = 1, (wfc.outW-1)/(wfc.N-1) do
+  for i = 1, wfc.wave.w do
     wfc.wave[i] = {}
-    for j = 1, (wfc.outH-1)/(wfc.N-1) do
+    for j = 1, wfc.wave.h do
       wfc.wave[i][j] = wfc.tileWave
+      print("setting space (" .. i .. ", " .. j .. ")")
     end
   end
+  print("done")
 end
 
 function WFC:observe()
   debug:write("observing --------------------------------\n")
+  debug:write(waveToEntropy())
+  print("observing")
   if wfc.checkIfFinished() then
     wfc.finished = true
     debug:write("wooo! done!")
@@ -79,26 +87,33 @@ function WFC:observe()
   chosen = nil
   while chosen == nil do
     for w = 1, #wfc.wave[i][j] do
-      prob = math.random()
-      if prob < wfc.tiles[w].frequency/#wfc.tiles then
-        chosen = w
-        debug:write("-- chosen is " .. w .. "\n")
+      if chosen == nil then
+        prob = math.random()
+        if prob < wfc.tiles[w].frequency/#wfc.tiles then
+          chosen = w
+          debug:write("-- chosen is " .. w .. "\n")
+        end
       end
     end
   end
   debug:write(waveToText())
-  for q = 1, #wfc.tiles do
-    if q ~= chosen then
-      wfc.wave[i][j][q] = false
-      debug:write("-- set " .. q .. " to false\n")
-      debug:write(waveToText())
+  local tempSpace = {}
+  for w = 1, #wfc.tiles do
+    if w ~= chosen then
+      tempSpace[w] = false
+      debug:write("-- set " .. w .. " to false\n")
+    else
+      tempSpace[w] = true
     end
   end
+  wfc.wave[i][j] = tempSpace
+  debug:write(waveToText())
   table.insert(wfc.toPropagate, {i, j})
 end
 
 function WFC:propagate()
   debug:write("propagating --------------------------------\n")
+  print("propagating")
   debug:write("- tP: (" .. #wfc.toPropagate .. ")\n")
   local futurePropagate = {}
 
@@ -177,7 +192,6 @@ function WFC:propagate()
 
       i = 1
     else i = i+1 end
-    debug:write("**** check: " .. (wfc.wave[1][1][1] and 'true' or 'false') .. " ****\n")
 
   end
 end
@@ -197,8 +211,20 @@ function waveToText()
   return str
 end
 
+function waveToEntropy()
+  local str = ""
+  for i = 1, #wfc.wave do
+    for j = 1, #wfc.wave[i] do
+      str = str .. "[" .. getEntropy(i, j) .. "]"
+    end
+    str = str .. "\n"
+  end
+  return str
+end
+
 function WFC:outputWave()
   debug:write("outputting --------------------------------\n")
+  print("outputting")
   outImgData = love.image.newImageData(wfc.outW, wfc.outH)    -- create output image
   for i = 1, #wfc.wave do
     for j = 1, #wfc.wave[i] do    -- go through the wave
@@ -254,26 +280,7 @@ function WFC:findLowestEntropy()
   lowest.coors = {-1, -1}
   for i = 1, #wfc.wave do
     for j = 1, #wfc.wave[i] do
-      local currentEntropy = 0
-      local tileSup = wfc.wave[i][j]
-
-      numTrue = 0
-      for i = 1, #tileSup do
-        if tileSup[i] then numTrue = numTrue + 1 end
-      end
-
-      if numTrue == 1 then
-        currentEntropy = 0
-      elseif numTrue == 0 then
-        currentEntropy = 9999999999
-        wfc.contradiction = true
-      else
-        for w = 1, #wfc.tiles do
-          currentEntropy = currentEntropy + wfc.tiles[w].frequency
-        end
-        currentEntropy = currentEntropy + math.random()
-      end
-
+      currentEntropy = getEntropy(i, j) + math.random()
       if currentEntropy < lowest.entropy then
         lowest.entropy = currentEntropy
         lowest.coors = {i, j}
@@ -284,8 +291,31 @@ function WFC:findLowestEntropy()
   return lowest.coors[1], lowest.coors[2]
 end
 
+function getEntropy(i, j)
+  local entropy = 0
+  local tileSup = wfc.wave[i][j]
+
+  numTrue = 0
+  for i = 1, #tileSup do
+    if tileSup[i] then numTrue = numTrue + 1 end
+  end
+
+  if numTrue == 1 then
+    entropy = 0
+  elseif numTrue == 0 then
+    entropy = 9999999999
+    wfc.contradiction = true
+  else
+    for w = 1, #wfc.tiles do
+      entropy = entropy + wfc.tiles[w].frequency
+    end
+  end
+  return entropy
+end
+
 function WFC:getTiles()
   debug:write("generating tiles --------------------------------\n")
+  print("generating tiles")
   for x = 0, wfc.inW - wfc.N do   -- make the tiles from the input and create color ids
     for y = 0, wfc.inH - wfc.N do
       local tile = {}
@@ -502,6 +532,7 @@ end
 
 function WFC:buildPropagator()
   debug:write("building the propagator --------------------------------\n")
+  print("building propagator")
   for i = 1, #wfc.tiles do    -- go through all tiles
     debug:write("- tile " .. i .." (id: " .. wfc.tiles[i].id .. ")\n")
     local currentTile = wfc.tiles[i]    -- get current tile
